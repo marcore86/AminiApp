@@ -9,8 +9,6 @@ define(["app/MenuBar","utility/Template","jquery"],function(MenuManager, Templat
     klass.OnLoad = function()  {
         console.log("hello");
         document.addEventListener("deviceready", function(){console.log("device platform = " + device.platform);}, false); //to be continued with console
-        //Home.init();
-//        var newTemplate = new Template();
         $('#MenuContainer').html(Template.Load("MenuBar"));
         MenuManager.init();
     }
@@ -18,23 +16,3 @@ define(["app/MenuBar","utility/Template","jquery"],function(MenuManager, Templat
     return klass;
 
 });
-
-//Main = {
-//
-//
-//    OnLoad : function()  {
-//        console.log("hello");
-//        document.addEventListener("deviceready", function(){console.log("device platform = " + device.platform);}, false); //to be continued with console
-//        //Home.init();
-//        $('#MenuContainer').html(Template.Load("MenuBar"));
-//        MenuManager.init();
-//    }
-//
-//}
-//
-//
-//Model = {
-//
-//    page : null
-//
-//}
