@@ -144,7 +144,14 @@ h1 {
 
 /***********************COMMON*************************/
 
-.footer{
+.Page{
+    position: absolute;
+    top: 0;
+    height: 90%;
+    width: 100%;
+}
+
+.header{
     position: absolute;
     top: 0;
     height: 35%;
@@ -159,14 +166,8 @@ h1 {
 }
 
 /************************HOME*************************/
-
-
 #Home{
     background-color: chocolate;
-    position: absolute;
-    top: 0;
-    height: 90%;
-    width: 100%;
 }
 
 #Slider{
@@ -186,3 +187,17 @@ h1 {
 }
 
 /************************PROFILE*************************/
+
+
+
+
+
+/************************MESSAGING VIEW*************************/
+
+#Messaging{
+    background-color: darkgrey;
+}
+
+.MessageContainer{
+    background-color: green;
+}

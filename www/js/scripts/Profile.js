@@ -9,7 +9,7 @@ define(["data/Model","utility/Template","jquery"],function(Model, Template, $){
 
     klass.init = function()  {
         console.log("init profile");
-        $('#PageContainer').html(Template.Load("Home"));
+        $('#PageContainer').html(Template.Load("Profile"));
         Model.Model.page = "Profile";
     }
 
