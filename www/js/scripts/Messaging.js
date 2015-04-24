@@ -7,7 +7,8 @@
 
 define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
     var klass = {},
-        _messageContainer = "<div class=\"messageContainer\"></div>",
+        _messageContainer = "<div class=\"messageContainer\">",
+        _divCloser = "</div>",
         _pvtFunction = function(){
 
         };
@@ -15,6 +16,8 @@ define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
 
     klass.init = function(){
 
+        $('#PageContainer').html(Template.Load("Messaging_View"));
+        Model.Model.page = "Messaging";
        //Load old content..
 
     };
@@ -22,9 +25,10 @@ define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
 
     klass.createMessage = function (text,author){
 
-        var message = "<div>" + text + "</div>";
-        var from = "<div class=\"author\">" + author + "</div>";
-
+        var message = "<div class=\"message\">" + text + "</div>",
+        from = "<div class=\"author\">" + author + "</div>",
+        messCompleted = _messageContainer + message + from + _divCloser;
+        $('#Messaging').append(messCompleted);
     };
 
     klass.deinit = function (){

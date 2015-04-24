@@ -198,6 +198,13 @@ h1 {
     background-color: darkgrey;
 }
 
-.MessageContainer{
+.message{
     background-color: green;
+    display: inline-block;
+    padding: 5px;
+}
+
+.author{
+    color: antiquewhite;
+    font-size: 9px;
 }

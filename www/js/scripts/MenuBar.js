@@ -27,6 +27,11 @@ define(function(require){
                 var tmp = require("app/Profile");
                 tmp.init();
             break;
+            case 4 :
+                var tmp = require("app/Messaging");
+                tmp.init();
+                tmp.createMessage("Amini wedding: the best ever!","Groom");
+            break;
 
         }
         },
