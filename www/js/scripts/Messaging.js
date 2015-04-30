@@ -5,10 +5,11 @@
  * Created by marco on 23/04/2015.
  */
 
-define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
+define(["data/Model","utility/Template","data/Communication","jquery"],function(Model, Template,Communication,$){
     var klass = {},
         _messageContainer = "<div class=\"messageContainer\">",
-        _divCloser = "</div>",
+        _divCloser = "</div></div>",
+        _messageCounter = 0,
         _pvtFunction = function(){
 
         };
@@ -18,6 +19,7 @@ define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
 
         $('#PageContainer').html(Template.Load("Messaging_View"));
         Model.Model.page = "Messaging";
+        Communication.getOldMessagges();
        //Load old content..
 
     };
@@ -25,15 +27,19 @@ define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
 
     klass.createMessage = function (text,author){
 
-        var message = "<div class=\"message\">" + text + "</div>",
+        _messageCounter++;
+        var positionCss = _messageCounter % 2 === 1 ? "mOnLeft" : "mOnRight";
+        message = "<div class=\" " +positionCss+ "\"><div class=\"message\">" + text + "</div>",
         from = "<div class=\"author\">" + author + "</div>",
         messCompleted = _messageContainer + message + from + _divCloser;
+
         $('#Messaging').append(messCompleted);
+
     };
 
     klass.deinit = function (){
 
-        this.slideShow();
+
 
     };
 
