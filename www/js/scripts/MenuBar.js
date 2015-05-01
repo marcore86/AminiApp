@@ -30,7 +30,6 @@ define(function(require){
                 case 4 :
                     var tmp = require("app/Messaging");
                     tmp.init();
-                    tmp.createMessage("Amini wedding: the best ever!","Groom");
                 break;
             }
         };

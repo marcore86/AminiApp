@@ -26,6 +26,10 @@ define(["data/Model","utility/Template","data/Communication","jquery"],function(
 
         $('#PageContainer').html(Template.Load("Messaging_View"));
         Model.page = "Messaging";
+        var that = this;
+        document.getElementById("SendNewMessage").addEventListener("click", function(){
+            that.createMessage("ciao","papi");
+        });
         Model.deferred.then(
             //function to bind once the old messages have been loaded
             _buildMessageGrid

@@ -107,6 +107,11 @@ h1 {
 	text-align : center;
 }
 /************************BUTTOM MENU *************************/
+#PageContainer{
+    position:absolute;
+    height: 90%;
+    width: 100%;
+}
 #MenuContainer{
 	background-color: #1C1D1E;
 	position: absolute;
@@ -147,7 +152,7 @@ h1 {
 .Page{
     position: absolute;
     top: 0;
-    height: 90%;
+    height: 100%;
     width: 100%;
 }
 
@@ -217,4 +222,13 @@ h1 {
 .author{
     color: antiquewhite;
     font-size: 9px;
+}
+
+#SendNewMessage{
+    background-color: blue;
+    position: absolute;
+    width: 10%;
+    height: 4%;
+    top: 95%;
+    right:2%;
 }
