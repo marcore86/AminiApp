@@ -4,9 +4,9 @@
 
 define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
     var klass = {},
+
         _makeCall = function(url,success){
 
-            var self = this;
             $.ajax({
                 type: "GET" ,
                 url: url ,
@@ -28,12 +28,19 @@ define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
 
 
     klass.getOldMessagges = function (){
+        //dfr = $.Deferred();,
         _makeCall("js/data/data.xml",
             function(data){
-                var messages =  $(data);
-                console.log(messages);
+
+                xmlDoc = $.parseXML( data.documentElement.outerHTML ),
+                $xml = $( xmlDoc ),
+                Model.messages = $xml;
+                mess = require("app/Messaging");
+                Model.deferred.resolve(mess.createMessage);
+
             }
         );
+
     };
 
     klass.deinit = function (){

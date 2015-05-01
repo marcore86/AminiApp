@@ -16,7 +16,7 @@ define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
     klass.init = function(){
 
         $('#PageContainer').html(Template.Load("Home"));
-        Model.Model.page = "Home";
+        Model.page = "Home";
         this.slideShow(true);
 
     };

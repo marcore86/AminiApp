@@ -9,20 +9,32 @@ define(["data/Model","utility/Template","data/Communication","jquery"],function(
     var klass = {},
         _messageContainer = "<div class=\"messageContainer\">",
         _divCloser = "</div></div>",
-        _messageCounter = 0,
-        _pvtFunction = function(){
+        _messageCounter = 0;
 
+        function _buildMessageGrid(createMessage){
+            var t = Model.messages.find('text');
+            var m = Model.messages.find('author');
+            for(i=0; i < t.length; i++){
+                var text = t[i].innerHTML;
+                var message = m[i].innerHTML;
+                createMessage(text,message);
+            }
         };
 
 
     klass.init = function(){
 
         $('#PageContainer').html(Template.Load("Messaging_View"));
-        Model.Model.page = "Messaging";
+        Model.page = "Messaging";
+        Model.deferred.then(
+            //function to bind once the old messages have been loaded
+            _buildMessageGrid
+        );
+        //Load old content..
         Communication.getOldMessagges();
-       //Load old content..
 
     };
+
 
 
     klass.createMessage = function (text,author){
@@ -38,8 +50,6 @@ define(["data/Model","utility/Template","data/Communication","jquery"],function(
     };
 
     klass.deinit = function (){
-
-
 
     };
 
