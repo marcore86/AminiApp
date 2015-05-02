@@ -32,9 +32,10 @@ define(["data/Model","utility/Template","jquery"],function(Model, Template,$){
         _makeCall("js/data/data.xml",
             function(data){
 
-                xmlDoc = $.parseXML( data.documentElement.outerHTML ),
-                $xml = $( xmlDoc ),
-                Model.messages = $xml;
+                xmlDoc = $( data.documentElement ),
+//                xmlDoc = $.parseXML( data.documentElement ),
+//                $xml = $( xmlDoc ),
+                Model.messages = xmlDoc;
                 mess = require("app/Messaging");
                 Model.deferred.resolve(mess.createMessage);
 

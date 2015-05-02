@@ -15,8 +15,8 @@ define(["data/Model","utility/Template","data/Communication","jquery"],function(
             var t = Model.messages.find('text');
             var m = Model.messages.find('author');
             for(i=0; i < t.length; i++){
-                var text = t[i].innerHTML;
-                var message = m[i].innerHTML;
+                var text = t[i].textContent;
+                var message = m[i].textContent;
                 createMessage(text,message);
             }
         };
@@ -49,7 +49,7 @@ define(["data/Model","utility/Template","data/Communication","jquery"],function(
         from = "<div class=\"author\">" + author + "</div>",
         messCompleted = _messageContainer + message + from + _divCloser;
 
-        $('#Messaging').append(messCompleted);
+        $('#Messaging').prepend(messCompleted);
 
     };
 
