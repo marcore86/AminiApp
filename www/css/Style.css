@@ -107,6 +107,11 @@ h1 {
 	text-align : center;
 }
 /************************BUTTOM MENU *************************/
+#PageContainer{
+    position:absolute;
+    height: 90%;
+    width: 100%;
+}
 #MenuContainer{
 	background-color: #1C1D1E;
 	position: absolute;
@@ -144,7 +149,14 @@ h1 {
 
 /***********************COMMON*************************/
 
-.footer{
+.Page{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.header{
     position: absolute;
     top: 0;
     height: 35%;
@@ -159,14 +171,8 @@ h1 {
 }
 
 /************************HOME*************************/
-
-
 #Home{
     background-color: chocolate;
-    position: absolute;
-    top: 0;
-    height: 90%;
-    width: 100%;
 }
 
 #Slider{
@@ -186,3 +192,43 @@ h1 {
 }
 
 /************************PROFILE*************************/
+
+
+
+
+
+/************************MESSAGING VIEW*************************/
+
+#Messaging{
+    background-color: darkgrey;
+}
+
+.message{
+    background-color: green;
+    display: inline-block;
+    padding: 5px;
+}
+.mOnLeft{
+    padding-left:2%;
+    clear:both;
+}
+
+.mOnRight{
+    padding-right:2%;
+    clear:both;
+    float:right;
+}
+
+.author{
+    color: antiquewhite;
+    font-size: 9px;
+}
+
+#SendNewMessage{
+    background-color: blue;
+    position: absolute;
+    width: 10%;
+    height: 4%;
+    top: 95%;
+    right:2%;
+}

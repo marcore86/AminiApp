@@ -1,15 +1,12 @@
 /**
  * Created by marco on 01/04/2015.
  */
-define(function() {
+define(["jquery"],function($) {
 
-    var klass = {};
-
-    klass.Model = {
-
-        page: null
-
-    }
+    var klass = {
+        page: null,
+        deferred: $.Deferred()
+    };
 
     return klass;
 
