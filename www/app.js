@@ -9,6 +9,7 @@ requirejs.config({
         app: '../scripts',
         data: '../data',
         jquery : 'jquery_',
+        hammer: 'Hammer',
         utility: '../Utility'
     }
 });

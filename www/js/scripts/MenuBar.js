@@ -27,6 +27,10 @@ define(function(require){
                     var tmp = require("app/Profile");
                     tmp.init();
                 break;
+                case 3 :
+                    var tmp = require("app/Pictures");
+                    tmp.init();
+                    break;
                 case 4 :
                     var tmp = require("app/Messaging");
                     tmp.init();
