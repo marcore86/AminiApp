@@ -2,7 +2,7 @@
  * Created by Marco on 05/05/2015.
  */
 
-define(["data/Model","utility/Template","jquery","hammer"],function(Model, Template,$,Hammer){
+define(["data/Model","utility/Template","jquery","app/ScrollManager"],function(Model, Template,$,sMgr){
     var klass = {},
         backcolor = ["yellow", "blue" , "red", "black"],
         _photoCounter = 0,
@@ -27,28 +27,16 @@ define(["data/Model","utility/Template","jquery","hammer"],function(Model, Templ
 
         $('#PageContainer').html(Template.Load("Pictures"));
         Model.page = "Pictures";
+        var divElement = document.getElementById("PageContainer");
+        this.createFrame();
+        var elContainer = document.getElementById("pic-0");
+        sMgr.init(divElement,elContainer);
+        sMgr.set("Pictures");
+        sMgr.updateNumEl(_photoCounter);
         var that = this;
-        var myElement = document.getElementById("PageContainer");
-        var hammertime = new Hammer(myElement);
-        hammertime.on('pan', function(ev) {
-            console.log(ev.deltaY);
-            console.log("distance "+ev.distance);
-            $( "#Pictures" ).animate({
-                top: ev.deltaY.toString()
-            }, 300, function() {
-                // Animation complete. need to check position of pictures
-                if($('#Pictures').position().top > 0  )
-                {
-                    $('#Pictures').animate({top:"0"})
-                }
-                //idea to check bottom scroll limit: count the all movements(+=ev.deltaY) on var will tell you the exactly position of the top of the first pic. Then you just need to check if the current bottom must be fixed.
-            });
-        });
-
         document.getElementById("PictureGenerator").addEventListener("click", function(){
             that.createFrame();
         });
-        this.createFrame();
 
     };
 
@@ -60,7 +48,7 @@ define(["data/Model","utility/Template","jquery","hammer"],function(Model, Templ
         $('#Pictures').prepend(picture);
         _setFrameBackground();
         _photoCounter++;
-
+        sMgr.updateNumEl(_photoCounter);
 
     };
 
